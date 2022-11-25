@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+
 import { AxiosContextProvider } from './api';
 
 import App from './components/App';
@@ -13,9 +15,11 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <React.StrictMode>
-        <AxiosContextProvider baseUrl={'https://vpic.nhtsa.dot.gov'}>
-            <App />
-        </AxiosContextProvider>
-        <Toaster />
+        <BrowserRouter>
+            <AxiosContextProvider baseUrl={'https://vpic.nhtsa.dot.gov'}>
+                <App />
+            </AxiosContextProvider>
+            <Toaster />
+        </BrowserRouter>
     </React.StrictMode>
 );

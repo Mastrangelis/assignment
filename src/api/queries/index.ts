@@ -1,3 +1,4 @@
-import useGetVehiclesQuery from './useGetVehiclesQuery';
+import useGetAllManufacturersQuery from './useGetAllManufacturersQuery';
+import useGetMakesByManufacturerIdQuery from './useGetMakesByManufacturerQuery';
 
-export { useGetVehiclesQuery };
+export { useGetAllManufacturersQuery, useGetMakesByManufacturerIdQuery };

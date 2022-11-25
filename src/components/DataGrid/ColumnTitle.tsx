@@ -1,17 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 
-import { SortingDirection } from './types';
-
-interface ColumnTitleProps {
-    title?: string;
-    disableSorting?: boolean;
-    direction?: SortingDirection;
-    selected: boolean;
-    position: 'start' | 'center' | 'end' | undefined;
-    disableSort?: boolean;
-    onClick: React.MouseEventHandler<HTMLDivElement>;
-}
+import { ColumnTitleProps } from './types';
 
 export default function ColumnTitle({
     title,
@@ -22,7 +12,7 @@ export default function ColumnTitle({
     disableSort,
     onClick
 }: ColumnTitleProps) {
-    const [hovered, setHovered] = React.useState(false);
+    const [hovered, setHovered] = useState<boolean>(false);
 
     return (
         <div

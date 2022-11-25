@@ -2,12 +2,20 @@ import { useQuery } from 'react-query';
 
 import { useAxiosRequest } from '../axios';
 
-export default function useGetVehiclesQuery() {
+interface QueryParams {
+    page: number;
+}
+
+export default function useGetAllManufacturersQuery(query: QueryParams) {
     const request = useAxiosRequest({
         method: 'get',
-        url: '/api/vehicles/GetModelsForMakeId/440?format=json'
+        url: [
+            `/api/vehicles/GetAllManufacturers?format=json`,
+            `&page=${query.page}`
+        ].join('')
     });
-    const { data, ...rest } = useQuery(['vehicles'], request);
+
+    const { data, ...rest } = useQuery(['manufacturers', query], request);
 
     return {
         ...rest,

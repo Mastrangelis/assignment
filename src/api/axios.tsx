@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useMemo } from 'react';
+import React, { createContext, ReactNode, useContext, useMemo } from 'react';
 import axios from 'axios';
 
 const AxiosContext = createContext(axios);
@@ -27,7 +27,7 @@ export function AxiosContextProvider({
 }
 
 export function useAxiosRequest(options: object) {
-    const axiosInstance = React.useContext(AxiosContext);
+    const axiosInstance = useContext(AxiosContext);
 
     return async (runtimeOptions: object) => {
         const res = await axiosInstance({
