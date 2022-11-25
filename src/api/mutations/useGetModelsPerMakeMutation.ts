@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query';
+import { useMutation } from 'react-query';
 
 import { useAxiosRequest } from '../axios';
 
@@ -6,22 +6,15 @@ interface QueryParams {
     makeId: string;
 }
 
-export default function useGetModelsPerMakeIdMutation(query: QueryParams) {
+export default function useGetModelsPerMakeIdMutation() {
     const request = useAxiosRequest({
-        method: 'get',
-        url: `/api/vehicles/GetModelsForMakeId/${query.makeId}?format=json`
+        method: 'get'
     });
 
-    const { data, ...rest } = useQuery(['models-per-make', query], request);
-
-    return {
-        ...rest,
-        data: data
-            ? {
-                  items: data.Results
-              }
-            : {
-                  items: []
-              }
-    };
+    return useMutation((query: QueryParams) => {
+        return request({
+            url: `/api/vehicles/GetModelsForMakeId/${query.makeId}?format=json`,
+            data: {}
+        });
+    });
 }

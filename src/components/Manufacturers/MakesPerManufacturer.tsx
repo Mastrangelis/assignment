@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useGetModelsPerMakeIdMutation } from 'src/api/mutations';
 import { useGetMakesByManufacturerIdQuery } from 'src/api/queries';
 import useApiError from 'src/hooks/useApiError';
 import useApiResponse from 'src/hooks/useApiResponse';
@@ -29,6 +30,11 @@ export default function MakesPerManufacturer({
         manufacturerId: Mfr_ID || ''
     });
 
+    const {
+        mutateAsync: fetchModelsPerMakeAsync,
+        isLoading: isModelsPerMakeLoading
+    } = useGetModelsPerMakeIdMutation();
+
     useEffect(() => onManufacturerChange(Mfr_Name), [Mfr_Name]);
 
     const { isCustomLoading } = useCustomLoading({
@@ -53,6 +59,29 @@ export default function MakesPerManufacturer({
             Make_Name: elem.Make_Name
         }));
     }, [results, isCustomLoading]);
+
+    useEffect(() => {
+        (async function () {
+            if (tableData?.length) {
+                try {
+                    let promises = [];
+                    for (let i = 0; i < tableData.length; i++) {
+                        promises.push(
+                            await fetchModelsPerMakeAsync({
+                                makeId: tableData[i].Make_ID
+                            })
+                        );
+                    }
+
+                    await Promise.all(promises).then((models: any) =>
+                        console.log('modeles', models)
+                    );
+                } catch (e) {
+                    console.error(e);
+                }
+            }
+        })();
+    }, [tableData]);
 
     const { sortedData, onSortChange, sorting } = useSorting({
         data: tableData,
