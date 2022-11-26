@@ -1,5 +1,9 @@
 import { useMemo, useState } from 'react';
-import { SortingProps } from 'src/components/Manufacturers/types';
+import {
+    ManufacturerProps,
+    ModelsTableDataProps,
+    SortingProps
+} from 'src/components/Manufacturers/types';
 import { sortNumberFunc, sortStringFunc } from 'src/utils/sort';
 import { UseSortingProps } from './types';
 
@@ -13,19 +17,21 @@ export default function useSorting({
         sortBy: initialSortedColumn
     });
 
-    const sortedData = useMemo(() => {
-        if (!data || !data.length) {
-            return [];
-        }
+    const sortedData: (ManufacturerProps | ModelsTableDataProps)[] =
+        useMemo(() => {
+            if (!data || !data.length) {
+                return [];
+            }
 
-        let sortingFunc = sortStringFunc;
+            let sortingFunc = sortStringFunc;
 
-        if (sorting.sortBy.split('_')[1] === 'ID') {
-            sortingFunc = sortNumberFunc;
-        }
+            // ID(s) columns are numbers
+            if (sorting.sortBy.split('_')[1] === 'ID') {
+                sortingFunc = sortNumberFunc;
+            }
 
-        return sortingFunc(data, sorting.sortBy, sorting.direction);
-    }, [data, isLoading, sorting]);
+            return sortingFunc(data, sorting.sortBy, sorting.direction);
+        }, [data, sorting]);
 
     const onSortChange = (col: any) => {
         const isSameColumn = col === sorting.sortBy;

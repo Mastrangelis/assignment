@@ -2,6 +2,10 @@
 /* eslint-disable  no-undef */
 
 import { MouseEventHandler, ReactNode } from 'react';
+import {
+    ManufacturerProps,
+    ModelsTableDataProps
+} from '../Manufacturers/types';
 
 type SortingDirection = 'asc' | 'desc';
 
@@ -46,10 +50,25 @@ interface DataGridWrapperProps {
     children: ReactNode;
 }
 
+interface ColumnTitlesWrapperProps {
+    data: Object[];
+    columns: ColumnOptions[];
+    sortBy?: string;
+    direction?: SortingDirection;
+    onSortChange?: CallableFunction;
+}
+
+interface LoadMoreButtonProps {
+    isLoading?: boolean;
+    onLoadMore?: MouseEventHandler<HTMLDivElement>;
+}
+
 export type {
     SortingDirection,
     ColumnOptions,
     ColumnTitleProps,
     DataGridProps,
-    DataGridWrapperProps
+    DataGridWrapperProps,
+    ColumnTitlesWrapperProps,
+    LoadMoreButtonProps
 };

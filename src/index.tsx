@@ -13,10 +13,12 @@ const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 
+const BASE_URL = 'https://vpic.nhtsa.dot.gov';
+
 root.render(
     <React.StrictMode>
         <BrowserRouter>
-            <AxiosContextProvider baseUrl={'https://vpic.nhtsa.dot.gov'}>
+            <AxiosContextProvider baseUrl={BASE_URL}>
                 <App />
             </AxiosContextProvider>
             <Toaster />

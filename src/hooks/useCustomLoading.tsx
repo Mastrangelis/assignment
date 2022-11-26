@@ -21,11 +21,7 @@ export default function useCustomLoading({
         if (!isLoading) {
             setTimeout(() => {
                 onCustomLoadingChange(false);
-                if (
-                    typeof query !== 'undefined' &&
-                    query.page === 1 &&
-                    isLoadingFirstPage
-                ) {
+                if (query?.page === 1 && isLoadingFirstPage) {
                     setIsLoadingFirstPage(false);
                 }
             }, TIMEOUT);

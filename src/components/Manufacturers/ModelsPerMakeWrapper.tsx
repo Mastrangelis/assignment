@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import Layout from '../Layout';
 import PageHeader from '../Layout/PageHeader';
-import MakesPerManufacturer from './MakesPerManufacturer';
+import ModelsPerMake from './ModelsPerMake';
 
-export default function MakesPerManufacturerWrapper() {
+export default function ModelsPerMakeWrapper() {
     const [manufacturerName, setManufacturerName] = useState<string>('');
 
     const onManufacturerChange = (name: string) => setManufacturerName(name);
 
     return (
         <Layout>
-            <PageHeader header={`Makes for ${manufacturerName}`} hasBackIcon />
-            <MakesPerManufacturer onManufacturerChange={onManufacturerChange} />
+            <PageHeader header={`Models for ${manufacturerName}`} hasBackIcon />
+            <ModelsPerMake onManufacturerChange={onManufacturerChange} />
         </Layout>
     );
 }

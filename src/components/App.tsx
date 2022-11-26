@@ -2,8 +2,9 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
+
 import ManufacturersWrapper from './Manufacturers/ManufacturersWrapper';
-import MakesPerManufacturerWrapper from './Manufacturers/MakesPerManufacturerWrapper';
+import ModelsPerMakeWrapper from './Manufacturers/ModelsPerMakeWrapper';
 
 const queryClient = new QueryClient();
 
@@ -13,8 +14,8 @@ function App() {
             <Routes>
                 <Route path="/" element={<ManufacturersWrapper />} />
                 <Route
-                    path="/makes"
-                    element={<MakesPerManufacturerWrapper />}
+                    path="/manufacturers/:id/models"
+                    element={<ModelsPerMakeWrapper />}
                 />
             </Routes>
         </QueryClientProvider>

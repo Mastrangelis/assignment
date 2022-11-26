@@ -8,9 +8,8 @@ export default function DetailsCell({ data }: DetailsCellProps) {
     const navigate = useNavigate();
 
     const onClick = () =>
-        navigate({
-            pathname: `/makes`,
-            search: `?Mfr_ID=${manufacturerDetails.Mfr_ID}&Mfr_Name=${manufacturerDetails.Mfr_Name}&Mfr_CommonName=${manufacturerDetails.Mfr_CommonName}&Country=${manufacturerDetails.Country}`
+        navigate(`/manufacturers/${manufacturerDetails.Mfr_ID}/models`, {
+            state: { ...manufacturerDetails }
         });
 
     return (

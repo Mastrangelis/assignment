@@ -13,17 +13,63 @@ interface VehicleTypeProps {
     IsPrimary: boolean;
     Name: string;
 }
-
-interface ManufacturerProps {
+interface ManufacturerOverviewProps {
     Country: string;
     Mfr_Name: string;
     Mfr_CommonName: string;
     Mfr_ID: number;
+}
+interface ManufacturerProps extends ManufacturerOverviewProps {
     VehicleTypes: VehicleTypeProps[];
+}
+
+interface MakesProps {
+    Make_ID: number;
+    Make_Name: string;
+    Mfr_Name: string;
 }
 
 interface DetailsCellProps {
     data: object;
 }
 
-export type { SortingProps, QueryParams, ManufacturerProps, DetailsCellProps };
+interface ModelsApiResponseProps {
+    Count: number;
+    Message: string;
+    SearchCriteria: string;
+    Results: ModelProps[];
+}
+
+interface ModelsPerMakeProps {
+    onManufacturerChange: CallableFunction;
+}
+
+interface ModelProps {
+    Model_ID: number;
+    Model_Name: string;
+    Make_ID: number;
+    Make_Name: string;
+}
+interface ModelsStateProps {
+    models: ModelProps[];
+    isLoading: boolean;
+    totalCount: number;
+}
+
+interface ModelsTableDataProps
+    extends ModelProps,
+        MakesProps,
+        ManufacturerOverviewProps {}
+
+export type {
+    SortingProps,
+    QueryParams,
+    ManufacturerProps,
+    DetailsCellProps,
+    ModelsPerMakeProps,
+    ModelsStateProps,
+    ModelProps,
+    MakesProps,
+    ModelsTableDataProps,
+    ModelsApiResponseProps
+};

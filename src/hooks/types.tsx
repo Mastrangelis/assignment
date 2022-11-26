@@ -1,5 +1,7 @@
 import {
+    MakesProps,
     ManufacturerProps,
+    ModelsTableDataProps,
     QueryParams
 } from 'src/components/Manufacturers/types';
 
@@ -9,14 +11,13 @@ interface UseApiErrorProps {
 }
 
 interface UseSortingProps {
-    data: any[];
+    data: (ManufacturerProps | ModelsTableDataProps)[];
     isLoading: boolean;
     initialSortedColumn: string;
 }
 
 interface DataProps {
-    items: ManufacturerProps[] | any[];
-    totalCount: number;
+    items: ManufacturerProps[] | MakesProps[];
 }
 
 interface UseApiResponseProps {

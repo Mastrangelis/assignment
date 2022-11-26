@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react';
-import { ManufacturerProps } from 'src/components/Manufacturers/types';
+import {
+    MakesProps,
+    ManufacturerProps
+} from 'src/components/Manufacturers/types';
 import { UseApiResponseProps } from './types';
 
 export default function useApiResponse({
     data,
     isLoading
 }: UseApiResponseProps) {
-    const [results, setResults] = useState<ManufacturerProps[] | any[]>([]);
+    const [results, setResults] = useState<(ManufacturerProps | MakesProps)[]>(
+        []
+    );
     const [totalCount, setTotalCount] = useState<number>(0);
 
     useEffect(() => {

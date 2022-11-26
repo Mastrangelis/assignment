@@ -9,7 +9,7 @@ import DataCounter from '../DataCounter';
 import DataGrid from '../DataGrid';
 import DataGridWrapper from '../DataGrid/DataGridWrapper';
 import { manufacturersTableCols } from './tableColumns';
-import { QueryParams } from './types';
+import { ManufacturerProps, QueryParams } from './types';
 
 export default function Manufacturers() {
     const [query, setQuery] = useState<QueryParams>({ page: 1 });
@@ -31,12 +31,12 @@ export default function Manufacturers() {
     useApiError({ isLoading: isDataLoading, isError });
 
     const { results, totalCount } = useApiResponse({
-        data: data as any,
+        data,
         isLoading: isDataLoading
     });
 
     const { sortedData, onSortChange, sorting } = useSorting({
-        data: results,
+        data: results as ManufacturerProps[],
         isLoading: isCustomLoading,
         initialSortedColumn: 'Mfr_ID'
     });

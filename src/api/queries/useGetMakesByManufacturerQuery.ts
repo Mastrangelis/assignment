@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import { useAxiosRequest } from '../axios';
 
 interface QueryParams {
-    manufacturerId: string;
+    manufacturerId: string | number;
 }
 
 export default function useGetMakesByManufacturerIdQuery(query: QueryParams) {
