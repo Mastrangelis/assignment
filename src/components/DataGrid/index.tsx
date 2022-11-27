@@ -8,7 +8,7 @@ import { ColumnOptions, DataGridProps } from './types';
 
 import 'react-loading-skeleton/dist/skeleton.css';
 import ColumnTitlesWrapper from './ColumnTitlesWrapper';
-import LoadMoreButton from './LoadMoreButton';
+import LoadMoreButton from '../Buttons/LoadMoreButton';
 
 export default function DataGrid({
     columns,

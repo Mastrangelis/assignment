@@ -13,7 +13,7 @@ export default function Toaster() {
                     'flex my-[10px] py-[14px] w-[430px] rounded-md light-blue-shadow hover:cursor-pointer':
                         true,
                     'bg-positive-100': options.type === 'success',
-                    'bg-[#E9E4FF]': options.type === 'warning',
+                    'bg-[#ffffcc]': options.type === 'warning',
                     'bg-primary-100': options.type === 'info',
                     'bg-negative-100': options.type === 'error'
                 })
@@ -23,7 +23,7 @@ export default function Toaster() {
                     'flex flex-row items-center ml-[10px] text-base font-bold':
                         true,
                     'text-positive-200': options.type === 'success',
-                    'text-[#3F1AF5]': options.type === 'warning',
+                    'text-[#ffc107]': options.type === 'warning',
                     'text-[#0043C8]': options.type === 'info',
                     'text-[#FB576A]': options.type === 'error'
                 })

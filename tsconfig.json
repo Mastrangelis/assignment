@@ -17,10 +17,10 @@
         "incremental": true,
         "baseUrl": ".",
         "paths": {
-            "@/components": ["components"],
-            "@/components/*": ["components/*"],
-            "@/api": ["components/api"],
-            "@/api/*": ["components/api/*"]
+            "@/components": ["src/components"],
+            "@/components/*": ["src/components/*"],
+            "@/api": ["src/api"],
+            "@/api/*": ["src/api/*"]
         }
     },
     "include": ["**/*.ts", "**/*.tsx", "./src"],

@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { AxiosContextProvider } from './api';
 
 import App from './components/App';
+import SkeletonWrapper from './components/Skeleton/SkeletonWrapper';
 import Toaster from './components/Toaster';
 
 import './styles/globals.css';
@@ -19,7 +20,9 @@ root.render(
     <React.StrictMode>
         <BrowserRouter>
             <AxiosContextProvider baseUrl={BASE_URL}>
-                <App />
+                <SkeletonWrapper>
+                    <App />
+                </SkeletonWrapper>
             </AxiosContextProvider>
             <Toaster />
         </BrowserRouter>

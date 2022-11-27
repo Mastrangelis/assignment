@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoadMoreButtonProps } from './types';
+import { LoadMoreButtonProps } from '../DataGrid/types';
 import Skeleton from 'react-loading-skeleton';
 
 import 'react-loading-skeleton/dist/skeleton.css';
