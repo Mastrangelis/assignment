@@ -21,7 +21,10 @@ export default function DataCounter({
                         </>
                     ) : (
                         <div className="flex items-center space-x-[6px]">
-                            <span className="text-dark body1-bold">
+                            <span
+                                className="text-dark body1-bold"
+                                data-cy="total-count"
+                            >
                                 {totalCount}
                             </span>
                             <span className="text-blackWhite-400 body1">

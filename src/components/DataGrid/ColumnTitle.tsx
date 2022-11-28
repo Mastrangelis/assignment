@@ -29,6 +29,7 @@ export default function ColumnTitle({
             }}
             onMouseLeave={() => setHovered(false)}
             onClick={onClick}
+            data-cy="column-wrapper"
         >
             <div className="relative">
                 {!disableSort && (

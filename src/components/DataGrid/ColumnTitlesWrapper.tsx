@@ -11,7 +11,10 @@ export default function ColumnTitlesWrapper({
     onSortChange
 }: ColumnTitlesWrapperProps) {
     return (
-        <div className="flex justify-start items-center sticky top-0 w-full z-50">
+        <div
+            data-cy="data-grid-table-headers"
+            className="flex justify-start items-center sticky top-0 w-full z-50"
+        >
             {data?.length > 0 &&
                 columns.map((item: ColumnOptions, index) => (
                     <div
