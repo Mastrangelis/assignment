@@ -3,7 +3,7 @@ import React from 'react';
 export default function GoBackButton({ navigate }: { navigate: any }) {
     return (
         <div
-            data-testid="go-back-wrapper"
+            data-cy="go-back-btn"
             className="mr-2 cursor-pointer"
             onClick={() => navigate('/')}
         >
@@ -12,7 +12,6 @@ export default function GoBackButton({ navigate }: { navigate: any }) {
                 alt="Go Back"
                 height={42}
                 width={42}
-                data-testid="go-back-icon"
             />
         </div>
     );

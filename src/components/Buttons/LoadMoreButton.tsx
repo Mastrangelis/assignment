@@ -10,6 +10,7 @@ export default function LoadMoreButton({
 }: LoadMoreButtonProps) {
     return (
         <div
+            data-cy="load-more-btn"
             className="w-full bg-alabaster flex items-center justify-center p-2.5 cursor-pointer border hover:!bg-blackWhite-200"
             onClick={onLoadMore}
         >
