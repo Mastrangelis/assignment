@@ -26,7 +26,7 @@ export default function useCustomLoading({
                 }
             }, TIMEOUT);
         }
-    }, [isLoading]);
+    }, [isLoading, isLoadingFirstPage, query?.page]);
 
     return { isCustomLoading, isLoadingFirstPage, onCustomLoadingChange };
 }

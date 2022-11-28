@@ -6,6 +6,7 @@ interface LayoutProps {
 
 interface PageHeaderProps {
     header: string;
+    navigate?: any;
     hasBackIcon?: boolean;
 }
 

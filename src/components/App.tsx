@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
 
@@ -9,13 +9,18 @@ import ModelsPerMakeWrapper from './Manufacturers/ModelsPerMakeWrapper';
 const queryClient = new QueryClient();
 
 function App() {
+    const navigate = useNavigate();
+
     return (
         <QueryClientProvider client={queryClient}>
             <Routes>
-                <Route path="/" element={<ManufacturersWrapper />} />
+                <Route
+                    path="/"
+                    element={<ManufacturersWrapper navigate={navigate} />}
+                />
                 <Route
                     path="/manufacturers/:id/models"
-                    element={<ModelsPerMakeWrapper />}
+                    element={<ModelsPerMakeWrapper navigate={navigate} />}
                 />
             </Routes>
         </QueryClientProvider>
