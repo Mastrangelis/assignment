@@ -8,18 +8,15 @@ import GoBackButton from '@/components/Buttons/GoBackButton';
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
     title: 'Example/Buttons',
-    component: GoBackButton,
-    args: {
-        navigate: () => {}
-    }
+    component: GoBackButton
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof GoBackButton>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 // eslint-disable-next-line react/function-component-definition
-const Template: ComponentStory<typeof GoBackButton> = ({ navigate }) => (
+const Template: ComponentStory<typeof GoBackButton> = () => (
     <BrowserRouter>
-        <GoBackButton navigate={navigate} />
+        <GoBackButton />
     </BrowserRouter>
 );
 

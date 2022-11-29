@@ -35,7 +35,7 @@ export default function ColumnTitle({
                 {!disableSort && (
                     <div
                         className={clsx({
-                            'flex items-center justify-center absolute top-[2px] w-5 h-5 bg-disabled rounded-[15px] default-transition':
+                            'flex items-center justify-center absolute w-5 h-5 bg-disabled rounded-[15px] default-transition':
                                 true,
                             'opacity-0':
                                 (!hovered && !selected) || disableSorting,

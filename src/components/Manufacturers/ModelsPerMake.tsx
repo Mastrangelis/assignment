@@ -85,12 +85,16 @@ export default function ModelsPerMake({
                             []
                         );
 
-                        setModelsState((prev: ModelsStateProps) => ({
-                            ...prev,
-                            models: results,
-                            isLoading: false,
-                            totalCount: results.length
-                        }));
+                        setTimeout(
+                            () =>
+                                setModelsState((prev: ModelsStateProps) => ({
+                                    ...prev,
+                                    models: results,
+                                    isLoading: false,
+                                    totalCount: results.length
+                                })),
+                            5000
+                        );
                     }
                 );
             } catch (e) {
@@ -115,7 +119,7 @@ export default function ModelsPerMake({
             Mfr_CommonName: manufacturerState.Mfr_CommonName || '-',
             Country: manufacturerState.Country || '-'
         }));
-    }, [modelsState.models]);
+    }, [modelsState, manufacturerState]);
 
     const { sortedData, onSortChange, sorting } = useSorting({
         data: tableData,

@@ -35,7 +35,7 @@ export default function DataGrid({
                 </div>
             );
         },
-        []
+        [data, columns, isLoading]
     );
 
     function CellSkeleton({ column }: { column: ColumnOptions }) {
@@ -56,6 +56,7 @@ export default function DataGrid({
             />
         );
     }
+
     return (
         <>
             <ColumnTitlesWrapper
@@ -65,59 +66,70 @@ export default function DataGrid({
                 sortBy={sortBy}
                 direction={direction}
             />
-
-            {data.map((row: any, index) => {
-                return (
-                    <div
-                        className="flex justify-start items-center body1 h-[56px] default-transition"
-                        key={index}
-                    >
-                        {columns.map((column, colIndex) => {
-                            {
-                                return (
-                                    <div
-                                        key={colIndex}
-                                        style={{
-                                            width: column.width ?? 'unset',
-                                            minWidth:
-                                                column.minWidth ?? column.width,
-                                            flex: column.width ? 0 : 1
-                                        }}
-                                        className={clsx({
-                                            'flex px-2.5 items-center h-full border-l border-b bg-white':
-                                                true,
-                                            'border-r':
-                                                colIndex === columns.length - 1,
-                                            '!bg-blackWhite-200':
-                                                hoveredIndex === index,
-                                            'cursor-pointer':
-                                                hoveredIndex === index,
-                                            'justify-end':
-                                                column.position === 'end',
-                                            'justify-center':
-                                                column.position === 'center',
-                                            'justify-start pl-10':
-                                                column.position === 'start'
-                                        })}
-                                        onMouseEnter={() => {
-                                            if (hoveredCells) {
-                                                setHoveredIndex(index);
+            <div data-cy="data-grid-rows">
+                {data.map((row: any, index) => {
+                    return (
+                        <div
+                            className="flex justify-start items-center body1 h-[56px] default-transition"
+                            key={index}
+                        >
+                            {columns.map((column, colIndex) => {
+                                {
+                                    return (
+                                        <div
+                                            key={colIndex}
+                                            style={{
+                                                width: column.width ?? 'unset',
+                                                minWidth:
+                                                    column.minWidth ??
+                                                    column.width,
+                                                flex: column.width ? 0 : 1
+                                            }}
+                                            className={clsx({
+                                                'flex px-2.5 items-center h-full border-l border-b bg-white':
+                                                    true,
+                                                'border-r':
+                                                    colIndex ===
+                                                    columns.length - 1,
+                                                '!bg-blackWhite-200':
+                                                    hoveredIndex === index,
+                                                'cursor-pointer':
+                                                    hoveredIndex === index,
+                                                'justify-end':
+                                                    column.position === 'end',
+                                                'justify-center':
+                                                    column.position ===
+                                                    'center',
+                                                'justify-start pl-10':
+                                                    column.position === 'start'
+                                            })}
+                                            onMouseEnter={() => {
+                                                if (hoveredCells) {
+                                                    setHoveredIndex(index);
+                                                }
+                                            }}
+                                            onMouseLeave={() =>
+                                                setHoveredIndex(-1)
                                             }
-                                        }}
-                                        onMouseLeave={() => setHoveredIndex(-1)}
-                                    >
-                                        {isLoading ? (
-                                            <CellSkeleton column={column} />
-                                        ) : (
-                                            renderCell(row, column, colIndex)
-                                        )}
-                                    </div>
-                                );
-                            }
-                        })}
-                    </div>
-                );
-            })}
+                                        >
+                                            {isLoading ? (
+                                                <CellSkeleton column={column} />
+                                            ) : (
+                                                renderCell(
+                                                    row,
+                                                    column,
+                                                    colIndex
+                                                )
+                                            )}
+                                        </div>
+                                    );
+                                }
+                            })}
+                        </div>
+                    );
+                })}
+            </div>
+
             {typeof isLoadingFirstPage !== 'undefined' &&
                 !isLoadingFirstPage && (
                     <LoadMoreButton

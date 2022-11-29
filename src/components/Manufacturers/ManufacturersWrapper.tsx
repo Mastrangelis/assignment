@@ -1,13 +1,12 @@
 import React from 'react';
-import Layout from '../Layout';
 import PageHeader from '../Layout/PageHeader';
 import Manufacturers from './Manufacturers';
 
-export default function ManufacturersWrapper({ navigate }: { navigate: any }) {
+export default function ManufacturersWrapper() {
     return (
-        <Layout>
+        <React.Fragment>
             <PageHeader header="All Manufacturers" />
             <Manufacturers />
-        </Layout>
+        </React.Fragment>
     );
 }

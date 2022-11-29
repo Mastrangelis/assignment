@@ -1,11 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export default function GoBackButton({ navigate }: { navigate: any }) {
+export default function GoBackButton() {
+    const navigate = useNavigate();
+
     return (
         <div
             data-cy="go-back-btn"
             className="mr-2 cursor-pointer"
-            onClick={() => navigate('/')}
+            onClick={() => navigate(-1)}
         >
             <img
                 src="/arrow-line-left.svg"

@@ -2,7 +2,7 @@ import GoBackButton from './GoBackButton';
 
 describe('Go Back Button', () => {
     it('Should render correctly', () => {
-        cy.mount(<GoBackButton navigate={() => alert('Clicked navigate')} />);
+        cy.mount(<GoBackButton />);
         cy.get('[data-cy=go-back-btn]')
             .should('be.visible')
             .should('have.css', 'margin-right', '8px')
@@ -21,8 +21,8 @@ describe('Go Back Button', () => {
     //     cy.get('.react-loading-skeleton').should('be.visible');
     // });
 
-    it('Should be able to click button and display alert', () => {
-        cy.mount(<GoBackButton navigate={() => alert('Clicked navigate')} />);
+    it('Should be able to click button', () => {
+        cy.mount(<GoBackButton />);
         cy.get('[data-cy=go-back-btn]').should('be.visible').click();
     });
 });

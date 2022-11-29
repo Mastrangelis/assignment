@@ -44,28 +44,28 @@ const makesTableCols: ColumnOptions[] = [
     {
         field: 'Model_ID',
         label: 'Model ID',
-        width: '160px',
+        width: '120px',
         position: 'end',
-        loadingWidth: '160px'
+        loadingWidth: '90px'
     },
     {
         field: 'Model_Name',
         label: 'Model Name',
-        minWidth: '510px',
+        minWidth: '220px',
         position: 'end',
         loadingWidth: '160px'
     },
     {
         field: 'Make_ID',
         label: 'Make ID',
-        width: '160px',
+        width: '110px',
         position: 'end',
-        loadingWidth: '160px'
+        loadingWidth: '90px'
     },
     {
         field: 'Make_Name',
         label: 'Make Name',
-        minWidth: '320px',
+        minWidth: '220px',
         position: 'end',
         loadingWidth: '160px'
     },
@@ -74,13 +74,13 @@ const makesTableCols: ColumnOptions[] = [
         label: 'Manufacturer ID',
         width: '160px',
         position: 'end',
-        loadingWidth: '160px',
+        loadingWidth: '90px',
         disableSort: true // No point as long as all values will have the same manufacturer ID
     },
     {
         field: 'Mfr_Name',
         label: 'Manufacturer Name',
-        minWidth: '320px',
+        minWidth: '220px',
         position: 'end',
         loadingWidth: '160px',
         disableSort: true // No point as long as all values will have the same manufacturer name
@@ -88,7 +88,7 @@ const makesTableCols: ColumnOptions[] = [
     {
         field: 'Mfr_CommonName',
         label: 'Manufacturer Common Name',
-        minWidth: '320px',
+        minWidth: '280px',
         position: 'end',
         loadingWidth: '160px',
         disableSort: true // No point as long as all values will have the same manufacturer common name
@@ -96,9 +96,9 @@ const makesTableCols: ColumnOptions[] = [
     {
         field: 'Country',
         label: 'Country',
-        minWidth: '220px',
+        minWidth: '160px',
         position: 'end',
-        loadingWidth: '160px',
+        loadingWidth: '110px',
         disableSort: true // No point as long as all values will have the same manufacturer country
     }
 ];

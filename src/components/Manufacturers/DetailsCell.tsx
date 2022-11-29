@@ -14,6 +14,7 @@ export default function DetailsCell({ data }: DetailsCellProps) {
 
     return (
         <div
+            data-cy="details-btn"
             className="w-full flex items-center justify-center"
             onClick={onClick}
         >

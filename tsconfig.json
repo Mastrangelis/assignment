@@ -23,6 +23,6 @@
             "@/api/*": ["src/api/*"]
         }
     },
-    "include": ["**/*.ts", "**/*.tsx", "./src"],
+    "include": ["**/*.ts", "**/*.tsx", "./src", "cypress/e2e/.cy.ts"],
     "exclude": ["node_modules"]
 }
