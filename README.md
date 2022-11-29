@@ -9,7 +9,7 @@ For the project the following technologies and libraries are used
 - Automated e2e Testing with cypress
 - Framer motion for beautiful and smooth transitions
 - React skeleton loading
-- Many, many custom reusable components such as DataGrid, Toasters, etc.
+- Many, many custom reusable components such as DataGrid (supports sorting both ASC | DESC in each column), Toasters, etc.
 - Dockerfile for containerizing the application
 
 ## Folder structure
@@ -22,6 +22,35 @@ For the project the following technologies and libraries are used
 - Dockerfile included in the root dir of the project
 - Configuration files such as .eslintrc and .prettierrc can be found at the root dir of the project
 - All **.cy.tsx** files under src/components/** folder are specs for component testing with cypress
+
+## Application Screenshots
+
+Some nice screenshots from the whole application functionality are the following
+
+### Landing Page "/" is the all manufacturers paginated table
+
+<img width="957" alt="Landing_Page" src="https://user-images.githubusercontent.com/48323010/204543236-4c215978-8dd2-4aba-b3eb-486d9869d068.png">
+
+### Scrolling right to the bottom of the table you will be able to see the "Load More" button which, by pressing it, will fetch the next page
+
+<img width="959" alt="Load more button" src="https://user-images.githubusercontent.com/48323010/204543242-4df76505-fc11-44f5-9c5b-9ade6570ec55.png">
+
+### Everytime we change page (data fetching) or on refresh, we have this beautiful react skeleton loading showing for better User experience
+
+<img width="959" alt="Skeleton_Loading" src="https://user-images.githubusercontent.com/48323010/204543251-c1f0d116-8b14-4438-bc47-bcb94ac2cdef.png">
+
+### We can sort each column of the DataGrid by either ASC or DESC by clicking on the header of the column (except from columns that have disableSort property set to true)
+
+<img width="950" alt="Sorting Columns_ASC" src="https://user-images.githubusercontent.com/48323010/204543254-57cd965e-906d-4c02-93b7-f3251eef94a4.png">
+
+<img width="960" alt="Sorting Columns_Desc" src="https://user-images.githubusercontent.com/48323010/204543259-6b9b1f29-5304-4752-8c9c-7629db3f42e9.png">
+
+### By clicking the details icon for each row we will navigate to models per make screen for that manufacturer and we can see the following view
+<img width="959" alt="Models" src="https://user-images.githubusercontent.com/48323010/204543245-96121d30-c75e-4db4-8566-d4cfd8416afb.png">
+
+Again we have a DataGrid with all the models for every Make of that manufacturer where we can sort each column either ASC or DESC except from the ones that have **disableSort** property set to true (**check code in DataGrid component props and tableColumns.tsx files**)
+
+In this screen by clicking the big blue left arrow on the header we can navigate back to the homescreen "/" (Manufacturers screen)
 
 ## Available Scripts
 
