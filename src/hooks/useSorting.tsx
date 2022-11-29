@@ -31,7 +31,7 @@ export default function useSorting({
             }
 
             return sortingFunc(data, sorting.sortBy, sorting.direction);
-        }, [data, sorting]);
+        }, [data, sorting, isLoading]);
 
     const onSortChange = (col: any) => {
         const isSameColumn = col === sorting.sortBy;

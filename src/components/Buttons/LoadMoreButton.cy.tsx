@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+import React from 'react';
 import LoadMoreButton from './LoadMoreButton';
 
 describe('LoadMoreButton', () => {

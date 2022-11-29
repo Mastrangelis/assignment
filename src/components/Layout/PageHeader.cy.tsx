@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+import React from 'react';
 import PageHeader from './PageHeader';
 
 describe('Page header', () => {

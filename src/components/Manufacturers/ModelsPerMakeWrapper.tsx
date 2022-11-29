@@ -8,9 +8,9 @@ export default function ModelsPerMakeWrapper() {
     const onManufacturerChange = (name: string) => setManufacturerName(name);
 
     return (
-        <React.Fragment>
+        <>
             <PageHeader header={`Models for ${manufacturerName}`} hasBackIcon />
             <ModelsPerMake onManufacturerChange={onManufacturerChange} />
-        </React.Fragment>
+        </>
     );
 }

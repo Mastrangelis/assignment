@@ -1,11 +1,5 @@
-/* eslint-disable  no-unused-vars */
-/* eslint-disable  no-undef */
-
+/* eslint-disable no-unused-vars */
 import { MouseEventHandler, ReactNode } from 'react';
-import {
-    ManufacturerProps,
-    ModelsTableDataProps
-} from '../Manufacturers/types';
 
 type SortingDirection = 'asc' | 'desc';
 

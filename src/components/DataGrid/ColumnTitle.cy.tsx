@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+import React from 'react';
 import ColumnTitle from './ColumnTitle';
 
 describe('Column Title', () => {

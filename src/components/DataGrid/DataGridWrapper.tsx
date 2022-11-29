@@ -1,3 +1,4 @@
+import React from 'react';
 import DefaultMotionDiv from '../DefaultMotionDiv';
 import { DataGridWrapperProps } from './types';
 

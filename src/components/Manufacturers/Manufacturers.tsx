@@ -54,7 +54,7 @@ export default function Manufacturers() {
             <DataCounter isLoading={isCustomLoading} totalCount={totalCount} />
             <DataGridWrapper>
                 <DataGrid
-                    hoveredCells={true}
+                    hoveredCells
                     columns={manufacturersTableCols}
                     data={sortedData}
                     isLoading={isCustomLoading}

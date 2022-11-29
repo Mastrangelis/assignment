@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+import React from 'react';
 import DataCounter from '.';
 
 describe('Data Counter', () => {
@@ -19,7 +21,7 @@ describe('Data Counter', () => {
     });
 
     it('Should be spinning when loading', () => {
-        cy.mount(<DataCounter totalCount={10} isLoading={true} />);
+        cy.mount(<DataCounter totalCount={10} isLoading />);
         cy.get('div:last')
             .should('be.visible')
             .should(

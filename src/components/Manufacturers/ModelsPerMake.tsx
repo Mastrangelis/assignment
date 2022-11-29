@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+/* eslint-disable consistent-return */
 import React, { useEffect, useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useGetModelsPerMakeIdMutation } from 'src/api/mutations';
@@ -63,9 +65,9 @@ export default function ModelsPerMake({
         (async function () {
             if (!makeIds?.length) return [];
 
-            let promises = [];
+            const promises = [];
             try {
-                for (let i = 0; i < makeIds.length; i++) {
+                for (let i = 0; i < makeIds.length; i += 1) {
                     promises.push(
                         fetchModelsPerMakeAsync({
                             makeId: makeIds[i]
@@ -85,16 +87,12 @@ export default function ModelsPerMake({
                             []
                         );
 
-                        setTimeout(
-                            () =>
-                                setModelsState((prev: ModelsStateProps) => ({
-                                    ...prev,
-                                    models: results,
-                                    isLoading: false,
-                                    totalCount: results.length
-                                })),
-                            5000
-                        );
+                        setModelsState((prev: ModelsStateProps) => ({
+                            ...prev,
+                            models: results,
+                            isLoading: false,
+                            totalCount: results.length
+                        }));
                     }
                 );
             } catch (e) {
@@ -135,7 +133,7 @@ export default function ModelsPerMake({
             />
             <DataGridWrapper>
                 <DataGrid
-                    hoveredCells={true}
+                    hoveredCells
                     columns={makesTableCols}
                     data={sortedData}
                     isLoading={modelsState.isLoading}

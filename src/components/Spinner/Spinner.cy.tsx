@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+import React from 'react';
 import Spinner from '.';
 
 describe('Spinner', () => {

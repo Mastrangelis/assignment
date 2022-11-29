@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable consistent-return */
 import { SortingDirection } from 'src/components/DataGrid/types';
 
 const sortStringFunc = (

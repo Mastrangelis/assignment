@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { SortingDirection } from '../DataGrid/types';
 
 interface SortingProps {
@@ -33,6 +34,13 @@ interface DetailsCellProps {
     data: object;
 }
 
+interface ModelProps {
+    Model_ID: number;
+    Model_Name: string;
+    Make_ID: number;
+    Make_Name: string;
+}
+
 interface ModelsApiResponseProps {
     Count: number;
     Message: string;
@@ -44,12 +52,6 @@ interface ModelsPerMakeProps {
     onManufacturerChange: CallableFunction;
 }
 
-interface ModelProps {
-    Model_ID: number;
-    Model_Name: string;
-    Make_ID: number;
-    Make_Name: string;
-}
 interface ModelsStateProps {
     models: ModelProps[];
     isLoading: boolean;

@@ -1,0 +1,123 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-11-29T10:58:01.760Z",
+    "end": "2022-11-29T10:58:33.337Z",
+    "duration": 31577,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f08a554c-9502-4178-972f-337f01b45a2f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ModelsPerMake.screen.cy.ts",
+      "file": "cypress\\e2e\\ModelsPerMake.screen.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7ae36ddc-7a69-4dab-b912-54c1853597ef",
+          "title": "Models per Make Screen",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should land to models per make screen and check that it renders successfully",
+              "fullTitle": "Models per Make Screen should land to models per make screen and check that it renders successfully",
+              "timedOut": null,
+              "duration": 15028,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Check the structure of the screen\ncy.location('pathname', { timeout: 10000 })\n    .should('eq', '/manufacturers/955/models')\n    .end();\ncy.wait(2000);\ncy.get('#root')\n    .should('be.visible')\n    .should('have.css', 'background-color', 'rgb(246, 248, 255)');\n// Check page header\ncy.get('h1')\n    .should('be.visible')\n    .contains('Models for TESLA, INC.')\n    .should('have.css', 'color', 'rgb(26, 99, 245)');\ncy.get('[data-cy=total-count]').should('be.visible').contains('6');\ncy.get('#datagrid ').should('be.visible');\n// Check that dataGrid headers are visible and have correct values\ncy.get('[data-cy=data-grid-table-headers]')\n    .children()\n    .then(function ($headers) {\n    return $headers.map(function (_, $header) { return $header.textContent; }).get();\n})\n    .then(function (contents) {\n    if (contents === void 0) { contents = []; }\n    return assert(JSON.stringify(contents) === JSON.stringify(dataGridHeaders));\n});\n// Check that number of rows in first render in datagrid is correct and that each row has the right stylinh\ncy.get('[data-cy=data-grid-rows]')\n    .children()\n    .should('have.length', 6)\n    .first()\n    .should('have.css', 'height', '56px')\n    .and('have.css', 'display', 'flex')\n    .and('have.css', 'justify-content', 'flex-start')\n    .and('have.css', 'align-items', 'center');\ncy.get('[data-cy=data-grid-rows]')\n    .children()\n    .first()\n    .should('have.text', '1685Model S441TESLA955TeslaUNITED STATES (USA)');",
+              "err": {},
+              "uuid": "87390ad6-e6ef-4c07-ad67-583c9977688c",
+              "parentUUID": "7ae36ddc-7a69-4dab-b912-54c1853597ef",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should move back to home screen (manufacturers) by clicking the go back arrow in header",
+              "fullTitle": "Models per Make Screen Should move back to home screen (manufacturers) by clicking the go back arrow in header",
+              "timedOut": null,
+              "duration": 15013,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[data-cy=go-back-btn]').should('be.visible').click();\ncy.wait(1000);\n// Check that it navigated to a different page\ncy.location('pathname', { timeout: 10000 }).should('eq', '/').end();\ncy.get('h1').should('be.visible').contains('All Manufacturers');\ncy.get('[data-cy=total-count]').should('be.visible').contains('91');",
+              "err": {},
+              "uuid": "c2f05f2d-445c-48ef-9c3c-ae82bc3c7b59",
+              "parentUUID": "7ae36ddc-7a69-4dab-b912-54c1853597ef",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "87390ad6-e6ef-4c07-ad67-583c9977688c",
+            "c2f05f2d-445c-48ef-9c3c-ae82bc3c7b59"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 30041,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "./cypress/reports",
+        "overwrite": false,
+        "mochaFile": "./cypress/reports/report-[hash].json"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
