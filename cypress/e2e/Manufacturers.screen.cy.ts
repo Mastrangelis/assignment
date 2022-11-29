@@ -48,8 +48,7 @@ describe('Manufacturers Screen', () => {
             .children()
             .should('have.length', 91)
             .first()
-            .should('have.css', 'height', '56px')
-            .and('have.css', 'display', 'flex')
+            .should('have.css', 'display', 'flex')
             .and('have.css', 'justify-content', 'flex-start')
             .and('have.css', 'align-items', 'center');
 

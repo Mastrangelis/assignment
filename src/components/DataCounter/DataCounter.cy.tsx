@@ -28,9 +28,7 @@ describe('Data Counter', () => {
                 'have.css',
                 'border-color',
                 'rgba(0, 0, 0, 0) rgb(37, 99, 235) rgb(37, 99, 235)'
-            )
-            .and('have.css', 'width', '22px')
-            .and('have.css', 'height', '22px');
+            );
         cy.get('span:last')
             .should('be.visible')
             .contains('processing request')
