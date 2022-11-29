@@ -29,8 +29,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
+    "storybook": "cross-env NODE_ENV=development start-storybook -p 6006 -s public",
+    "build-storybook": "cross-env NODE_ENV=development build-storybook -s public",
     "cypress:interactive": "npx cypress open",
     "cypress:headless": "npx cypress run --headless"
   },
@@ -81,6 +81,7 @@
     "@types/react-test-renderer": "^18.0.0",
     "autoprefixer": "^10.4.1",
     "babel-loader": "^8.2.3",
+    "cross-env": "^7.0.3",
     "cypress": "^11.2.0",
     "eslint": "^8.6.0",
     "eslint-config-airbnb": "^19.0.4",
