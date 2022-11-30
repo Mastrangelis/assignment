@@ -109,7 +109,7 @@ We can run cypress tests in two modes:
 - Headless
 - Headed (Interactive)
 
-***For each of these cases the React app has to be up and running !!***
+## !! NOTE !! ***For each of these cases related to cypress testing, the React app has to be up and running. So npm run start in a different cli first. !!***
 
 Let's see the two scripts below
 
